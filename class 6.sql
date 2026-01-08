@@ -69,4 +69,32 @@ insert into dept values (1, 'Sales', 'Moyo Salau'),
 select * from dept;
 
 select * from head_count union select * from dept;
-select id from head_count union select id from dept
+select id from head_count union select id from dept;
+/* Note, when retrieving all data from two different table with  the tables having different
+table number, the SET operators won't work.
+you can select by specifying the column na,e when the tables has different number of column */
+# RULES
+/* 1. SELECT statement of each table should retrieve the same number of columns
+2. columns provided in the SELECT statement should have similar data type
+3. the order of the columns name provided in the SELECT statement should be thesame for it to work properly */
+
+# MINUS operator
+/* MINUS operator will retrieve all records from TABLE 1 and no record from TABLE 2 and 
+also, all all records that intersect between table 1 and 2 will also not be retrieved */
+# MINUS operator is not support in NYSQL RDBMS
+
+# ALIAS NAME FOR TABLES
+select * from  emp;
+delete from emp where id=9;
+
+select * from  salary;
+insert into salary values (1, 'Maybach Blum', 'Purchase', 50000),
+(2, 'James John', 'Sales', 55000), (3, 'Musa Usman', 'finance', 70000),
+(7, 'Broody Mark', 'Engineer', 120000);
+
+select e.id, e.name, s.dept, s.net_salary 
+from emp e, salary s where e.id=s.id;
+# when using aliases, it is important to add condition with WHERE condition, so it can specify what to retrieve
+
+
+
